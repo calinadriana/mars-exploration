@@ -31,7 +31,7 @@ public class DimensionCalculator : IDimensionCalculator
         }
 
         int nextNumber = (int)Math.Floor(Math.Sqrt(number)) + 1;
-        return nextNumber * nextNumber;
+        return nextNumber;
     }
 
 }
