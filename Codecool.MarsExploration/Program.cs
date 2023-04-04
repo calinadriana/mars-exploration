@@ -46,9 +46,23 @@ internal class Program
 
         var mountainsCfg = new MapElementConfiguration(mountainSymbol, "mountain", new[]
         {
-            new ElementToSize(2, 20),
+            new ElementToSize(1, 20),
             new ElementToSize(1, 30),
         }, 3);
+
+        var pityConfiguration = new MapElementConfiguration(pitSymbol, "pits", new[]
+        {
+            new ElementToSize(2, 10),
+            new ElementToSize(1, 20),
+        },10);
+        var mineralsConfiguration = new MapElementConfiguration(mineralSymbol, "minerals", new[]
+        {
+            new ElementToSize(1, 10)
+        }, 0, "#");
+        var waterConfiguratio = new MapElementConfiguration(waterSymbol, "water", new[]
+        {
+            new ElementToSize(1, 10)
+        }, 0, "&");
 
         List<MapElementConfiguration> elementsCfg = new() { mountainsCfg };
         return new MapConfiguration(1000, 0.5, elementsCfg);
