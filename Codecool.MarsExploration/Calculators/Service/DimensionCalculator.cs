@@ -13,7 +13,7 @@ public class DimensionCalculator : IDimensionCalculator
 
     }
 
-    private static bool isPerfect(int n)
+    private bool isPerfect(int n)
     {
         if((Math.Sqrt(n) - Math.Floor(Math.Sqrt(n))) !=0)
         {
@@ -23,7 +23,7 @@ public class DimensionCalculator : IDimensionCalculator
 
     }
 
-    private static int findNextSquare(int number)
+    private int findNextSquare(int number)
     {
         if (isPerfect(number))
         {

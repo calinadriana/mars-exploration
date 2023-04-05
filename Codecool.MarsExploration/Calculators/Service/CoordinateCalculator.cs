@@ -40,15 +40,18 @@ public class CoordinateCalculator : ICoordinateCalculator
 
         foreach (Coordinate coordinate in coordinates)
         {
-            if (coordinate.Y-1 >= 0 )
-            {
-                adjacentCoordinates.Add(new Coordinate(coordinate.X,coordinate.Y-1));
-            }
+            //if (coordinate.Y - 1 >= 0) 
+            //{
+            //    adjacentCoordinates.Add(new Coordinate(coordinate.X,coordinate.Y-1));
+            //}
 
-            if (coordinate.Y + 1 <= dimension)
-            {
-                adjacentCoordinates.Add(new Coordinate(coordinate.X, coordinate.Y +1));
-            }
+            //if (coordinate.Y + 1 <= dimension)
+            //{
+            //    adjacentCoordinates.Add(new Coordinate(coordinate.X, coordinate.Y +1));
+            //}
+            var newCoord =  GetAdjacentCoordinates(coordinate, dimension);
+            adjacentCoordinates.AddRange(newCoord);
+
         }
         return adjacentCoordinates;
 
