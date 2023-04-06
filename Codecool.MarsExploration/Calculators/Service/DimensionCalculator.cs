@@ -6,8 +6,12 @@ public class DimensionCalculator : IDimensionCalculator
 {
     public int CalculateDimension(int size, int dimensionGrowth)
     {
-        int ceva = size * dimensionGrowth;
-        return findNextSquare(ceva);
+        int dimension = size * dimensionGrowth;
+        if (dimension <= 0)
+        {
+            dimension = 1;
+        }
+        return findNextSquare(dimension);
 
 
 

@@ -35,11 +35,15 @@ internal class Program
 
     private static void CreateAndWriteMaps(int count, IMapGenerator mapGenerator, MapConfiguration mapConfig)
     {
-        IMapFileWriter mapFileWriter = new MapFileWriter();
+        
+        MapFileWriter mapFileWriter = new MapFileWriter();
         var map = mapGenerator.Generate(mapConfig);
-        var pathName = "map1.txt";
-        var path = Path.Combine(WorkDir + pathName);
-        mapFileWriter.WriteMapFile(map, path);
+        //var pathName = "map1.txt";
+        var path =
+            @"C:\Users\Adriana\Desktop\proiecte\OOP\mars-exploration-1-csharp-calinadriana\Codecool.MarsExploration\Resources\map1.txt";
+            //Path.Combine(WorkDir + pathName);
+       // if (map.SuccessfullyGenerated)
+            mapFileWriter.WriteMapFile(map, path);
 
     }
 
@@ -52,7 +56,7 @@ internal class Program
 
         var mountainsCfg = new MapElementConfiguration(mountainSymbol, "mountain", new[]
         {
-            new ElementToSize(1, 20),
+            new ElementToSize(2, 20),
             new ElementToSize(1, 30),
         }, 3);
 
@@ -63,14 +67,14 @@ internal class Program
         },10);
         var mineralsConfiguration = new MapElementConfiguration(mineralSymbol, "minerals", new[]
         {
-            new ElementToSize(1, 10)
+            new ElementToSize(10, 1)
         }, 0, "#");
-        var waterConfiguratio = new MapElementConfiguration(waterSymbol, "water", new[]
+        var waterConfiguration = new MapElementConfiguration(waterSymbol, "water", new[]
         {
-            new ElementToSize(1, 10)
+            new ElementToSize(10, 1)
         }, 0, "&");
 
-        List<MapElementConfiguration> elementsCfg = new() { mountainsCfg };
+        List<MapElementConfiguration> elementsCfg = new() { mountainsCfg, pityConfiguration, mineralsConfiguration, waterConfiguration };
         return new MapConfiguration(1000, 0.5, elementsCfg);
     }
 }

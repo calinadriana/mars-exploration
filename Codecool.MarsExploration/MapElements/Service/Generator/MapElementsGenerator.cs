@@ -6,9 +6,9 @@ namespace Codecool.MarsExploration.MapElements.Service.Generator;
 
 public class MapElementsGenerator : IMapElementsGenerator
 {
-    private readonly IMapElementBuilder builder;
+    private readonly MapElementBuilder builder;
 
-    public MapElementsGenerator(IMapElementBuilder builder)
+    public MapElementsGenerator(MapElementBuilder builder)
     {
         this.builder = builder;
     }
@@ -25,7 +25,8 @@ public class MapElementsGenerator : IMapElementsGenerator
                         elementDimension.Size,
                         mapElementConfiguration.Symbol,
                         mapElementConfiguration.Name,
-                        mapElementConfiguration.DimensionGrowth
+                        mapElementConfiguration.DimensionGrowth,
+                        mapElementConfiguration.PreferredLocationSymbol
                     );
                     generatedElements.Add(generatedElement);
                 }

@@ -12,8 +12,12 @@ public record Map(string?[,] Representation, bool SuccessfullyGenerated = false)
         {
             for (int j = 0; j < arr.GetLength(1); j++)
             {
-                s += arr[i, j];
+                s += arr[i, j] + " ";
             }
+
+            s.TrimEnd();
+
+            s += "\n";
         }
 
         return s;
