@@ -36,7 +36,7 @@ public class MapGenerator : IMapGenerator
 
         foreach (var element in elements)
         {
-            if (element.Name == "water" || element.Name == "mineral")
+            if (element.Name == "water" || element.Name == "minerals")
             {
                 ReturnWaterAndMinerals(element, mapConfig, map.Representation);
                 continue;
@@ -128,8 +128,8 @@ public class MapGenerator : IMapGenerator
 
         List<Coordinate> mountainCoordinates = new List<Coordinate>();
         List<Coordinate> pitCoordinates = new List<Coordinate>();
-        List<Coordinate> adjiacentCoordinatesMountains = new List<Coordinate>();
-        List<Coordinate> adjiacentCoordinatesPits = new List<Coordinate>();
+        List<Coordinate> adjacentCoordinatesMountains = new List<Coordinate>();
+        List<Coordinate> adjacentCoordinatesPits = new List<Coordinate>();
 
         if (!isMountainAndPitMade)
         {
@@ -143,22 +143,22 @@ public class MapGenerator : IMapGenerator
                 }
             }
 
-            adjiacentCoordinatesMountains = GetEmptyAdjacentCoordinates(mapConfig, mountainCoordinates, representation);
-            adjiacentCoordinatesPits = GetEmptyAdjacentCoordinates(mapConfig, pitCoordinates, representation);
+            adjacentCoordinatesMountains = GetEmptyAdjacentCoordinates(mapConfig, mountainCoordinates, representation);
+            adjacentCoordinatesPits = GetEmptyAdjacentCoordinates(mapConfig, pitCoordinates, representation);
         }
 
         if (element.Name == "minerals")
         {
-            Coordinate placeCoordinate = adjiacentCoordinatesMountains[random.Next(adjiacentCoordinatesMountains.Count)];
+            Coordinate placeCoordinate = adjacentCoordinatesMountains[random.Next(adjacentCoordinatesMountains.Count)];
             representation[placeCoordinate.X, placeCoordinate.Y] = mineralSymbol;
-            adjiacentCoordinatesMountains.Remove(placeCoordinate);
+            adjacentCoordinatesMountains.Remove(placeCoordinate);
         }
 
         if (element.Name == "water")
         {
-            Coordinate placeCoordinate = adjiacentCoordinatesPits[random.Next(adjiacentCoordinatesPits.Count)];
+            Coordinate placeCoordinate = adjacentCoordinatesPits[random.Next(adjacentCoordinatesPits.Count)];
             representation[placeCoordinate.X, placeCoordinate.Y] = waterSymbol;
-            adjiacentCoordinatesPits.Remove(placeCoordinate);
+            adjacentCoordinatesPits.Remove(placeCoordinate);
         }
     }
 

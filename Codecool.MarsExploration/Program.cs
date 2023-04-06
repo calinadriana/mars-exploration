@@ -36,7 +36,7 @@ internal class Program
     private static void CreateAndWriteMaps(int count, IMapGenerator mapGenerator, MapConfiguration mapConfig)
     {
         
-        MapFileWriter mapFileWriter = new MapFileWriter();
+        MapFileWriter mapFileWriter = new ();
         var map = mapGenerator.Generate(mapConfig);
         //var pathName = "map1.txt";
         var path =

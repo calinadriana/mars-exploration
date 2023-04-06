@@ -38,11 +38,12 @@ public class MapElementPlacer : IMapElementPlacer
         int maxX = coordinate.X + element.Dimension;
         int maxY = coordinate.Y + element.Dimension;
         int elementI = 0;
-        for (int i = coordinate.X; i < maxX; i++)
+        for (int i = coordinate.Y; i < maxY; i++)
         {
             int elementJ = 0;
-            for (int j = coordinate.Y; j < maxY; j++)
+            for (int j = coordinate.X; j < maxX; j++)
             {
+                
                 map[i, j] = element.Representation[elementI, elementJ];
                 elementJ++;
             }
@@ -50,39 +51,39 @@ public class MapElementPlacer : IMapElementPlacer
             elementI++;
         }
     
-    //int maxX = coordinate.X + element.Dimension;
-    //int maxY = coordinate.Y + element.Dimension;
-    //int iEl = 0;
+        //int maxX = coordinate.X + element.Dimension;
+        //int maxY = coordinate.Y + element.Dimension;
+        //int iEl = 0;
 
-    //for (int i = coordinate.X; i < maxX; i++)
-    //{
-    //    int jEl = 0;
-    //    for (int j = coordinate.Y; j < maxY; j++)
-    //    {
-    //        map[i,j] = element.Representation[iEl,jEl];
-    //        jEl++;
-    //    }
+        //for (int i = coordinate.X; i < maxX; i++)
+        //{
+        //    int jEl = 0;
+        //    for (int j = coordinate.Y; j < maxY; j++)
+        //    {
+        //        map[i,j] = element.Representation[iEl,jEl];
+        //        jEl++;
+        //    }
 
-    //    iEl++;
-    //}
+        //    iEl++;
+        //}
 
-    //map[coordinate.X, coordinate.Y] = element.Name;
-    //if (element.Representation.Length > 1)
-    //{
-    //   int[] mapCoord = GetMapSpace(map, element.Representation.Length);
-    //    for (int mapRow = mapCoord[startRow], x=0; mapRow < mapCoord[endRow]; mapRow++, x++)
-    //    {
-    //        for (int mapCol = mapCoord[startCol], y=0; mapCol < mapCoord[endCol]; mapCol++,y++)
-    //        {
-    //            map[mapRow, mapCol] = element.Representation[x,y];
-    //        }
-    //    }
-    //}
-    //else
-    //{
-    //    map[coordinate.X, coordinate.Y] = element.Representation[0, 0];
-    //}
-}
+        //map[coordinate.X, coordinate.Y] = element.Name;
+        //if (element.Representation.Length > 1)
+        //{
+        //   int[] mapCoord = GetMapSpace(map, element.Representation.Length);
+        //    for (int mapRow = mapCoord[startRow], x=0; mapRow < mapCoord[endRow]; mapRow++, x++)
+        //    {
+        //        for (int mapCol = mapCoord[startCol], y=0; mapCol < mapCoord[endCol]; mapCol++,y++)
+        //        {
+        //            map[mapRow, mapCol] = element.Representation[x,y];
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    map[coordinate.X, coordinate.Y] = element.Representation[0, 0];
+        //}
+    }
 
     //private int[] GetMapSpace(string[,]map, int elementSize)
     //{
