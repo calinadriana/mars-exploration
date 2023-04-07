@@ -35,20 +35,20 @@ public class MapElementPlacer : IMapElementPlacer
     //    private int endCol = 3;
     public void PlaceElement(MapElement element, string?[,] map, Coordinate coordinate)
     {
-        int maxX = coordinate.X + element.Dimension;
-        int maxY = coordinate.Y + element.Dimension;
-        int elementI = 0;
-        for (int i = coordinate.Y; i < maxY; i++)
+        int maxcorX = coordinate.X + element.Dimension;
+        int maxcorY = coordinate.Y + element.Dimension;
+        int elI = 0;
+        for (int i = coordinate.Y; i < maxcorY; i++)
         {
-            int elementJ = 0;
-            for (int j = coordinate.X; j < maxX; j++)
+            int elJ = 0;
+            for (int j = coordinate.X; j < maxcorX; j++)
             {
                 
-                map[i, j] = element.Representation[elementI, elementJ];
-                elementJ++;
+                map[i, j] = element.Representation[elI, elJ];
+                elJ++;
             }
 
-            elementI++;
+            elI++;
         }
     
         //int maxX = coordinate.X + element.Dimension;

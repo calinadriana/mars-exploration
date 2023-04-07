@@ -119,7 +119,7 @@ public class MapGenerator : IMapGenerator
 
     private void ReturnWaterAndMinerals(MapElement element, MapConfiguration mapConfig, string[,] representation)
     {
-        bool isMountainAndPitMade = false;
+        bool isMountainAndPitsPlaced = false;
         const string mountainSymbol = "#";
         const string pitSymbol = "&";
         const string mineralSymbol = "%";
@@ -131,9 +131,9 @@ public class MapGenerator : IMapGenerator
         List<Coordinate> adjacentCoordinatesMountains = new List<Coordinate>();
         List<Coordinate> adjacentCoordinatesPits = new List<Coordinate>();
 
-        if (!isMountainAndPitMade)
+        if (!isMountainAndPitsPlaced)
         {
-            isMountainAndPitMade = true;
+            isMountainAndPitsPlaced = true;
             for (int i = 0; i < mapConfig.MapSize; i++)
             {
                 for (int j = 0; j < mapConfig.MapSize; j++)
@@ -166,12 +166,12 @@ public class MapGenerator : IMapGenerator
         string[,] representation)
     {
         ICoordinateCalculator coordinateCalculator = new CoordinateCalculator();
-        List<Coordinate> coordinates = new List<Coordinate>();
+        List<Coordinate> firstCoordinates = new List<Coordinate>();
         List<Coordinate> finalCoordinates = new List<Coordinate>();
 
-        coordinates = coordinateCalculator.GetAdjacentCoordinates(elementsLocation, mapConfig.MapSize).ToList();
+        firstCoordinates = coordinateCalculator.GetAdjacentCoordinates(elementsLocation, mapConfig.MapSize).ToList();
 
-        foreach (var coordinate in coordinates)
+        foreach (var coordinate in firstCoordinates)
         {
             if (representation[coordinate.X, coordinate.Y] == " ")
                 finalCoordinates.Add(coordinate);

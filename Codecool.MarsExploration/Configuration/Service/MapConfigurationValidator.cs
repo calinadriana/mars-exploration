@@ -8,11 +8,7 @@ public class MapConfigurationValidator : IMapConfigurationValidator
 {
     public bool Validate(MapConfiguration mapConfig)
     {
-        if (mapConfig.MapSize !=1000)
-        {
-            Console.WriteLine($"You didn't put the right size for the map.Your map size is: {mapConfig.MapSize}");
-            return false;
-        }
+        
 
         if (mapConfig.ElementToSpaceRatio != 0.5D)
         {
